@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <title>BMI Calculator</title>
+</head>
+
+<body class="min-h-screen flex justify-center items-center bg-black px-4">
+  <div class="container mx-auto p-4">
+
+    <!-- Input Section -->
+    <div class="flex justify-center items-center">
+      <div class="flex flex-col items-center mb-10 w-full max-w-md bg-white/10 backdrop-blur-sm p-6 rounded-xl">
+        <h1 class="text-white font-bold mb-4 text-3xl text-center">Calculate BMI</h1>
+
+        <input id="height" type="number" 
+          class="text-center bg-white w-full py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
+          placeholder="Enter your height in meters" />
+
+        <input id="weight" type="number" 
+          class="text-center bg-white w-full py-3 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 mt-4"
+          placeholder="Enter your weight in kg" />
+
+        <button id="calculate"
+          class="bg-green-700 p-3 mt-5 w-40 rounded-lg hover:bg-green-600 text-white font-bold transition">
+          Calculate
+        </button>
+      </div>
+    </div>
+
+    <!-- Report Section -->
+    <div id="report"
+      class="hidden mx-auto bg-white w-full max-w-3xl p-6 sm:p-8 rounded-xl shadow-lg transition-all duration-300">
+      <h1 class="font-bold text-2xl sm:text-3xl mb-4 text-gray-800">Calculated Result</h1>
+
+      <!-- BMI Result -->
+      <div class="flex flex-col sm:flex-row p-4 bg-green-100 rounded-lg sm:gap-20 gap-4 items-center">
+        <h2 class="text-3xl font-bold text-green-800 bmiPoint">17.3</h2>
+        <p class="font-bold text-lg text-gray-700 condition">Underweight</p>
+      </div>
+
+      <!-- Detailed Result -->
+      <div class="flex flex-col sm:flex-row p-4 items-start sm:items-center gap-4 mt-4">
+        <h3 class="font-bold flex-shrink-0 w-full sm:w-1/3">Detailed Result</h3>
+        <p class="text-gray-700 leading-relaxed w-full sm:w-2/3">
+          Based on the information entered, your BMI is
+          <span class="font-bold bmiPoint">17.3</span>, indicating your weight is in
+          the <span class="font-bold condition">Underweight</span> category for adults of your height.
+        </p>
+      </div>
+
+      <!-- BMI Table -->
+      <div class="overflow-x-auto mt-6">
+        <table class="min-w-full border border-gray-300 divide-y divide-gray-200 text-sm text-gray-800">
+          <thead class="bg-green-600 text-white">
+            <tr>
+              <th class="px-4 py-2 text-left font-semibold">BMI Category</th>
+              <th class="px-4 py-2 text-left font-semibold">BMI Range (kg/m²)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr class="uw">
+              <td class="px-4 py-2">Underweight</td>
+              <td class="px-4 py-2">Below 18.5</td>
+            </tr>
+            <tr class="nw">
+              <td class="px-4 py-2">Normal weight</td>
+              <td class="px-4 py-2">18.5 – 24.9</td>
+            </tr>
+            <tr class="ow">
+              <td class="px-4 py-2">Overweight</td>
+              <td class="px-4 py-2">25.0 – 29.9</td>
+            </tr>
+            <tr class="ob1">
+              <td class="px-4 py-2">Obese (Class I)</td>
+              <td class="px-4 py-2">30.0 – 34.9</td>
+            </tr>
+            <tr class="ob2">
+              <td class="px-4 py-2">Obese (Class II)</td>
+              <td class="px-4 py-2">35.0 – 39.9</td>
+            </tr>
+            <tr class="ob3">
+              <td class="px-4 py-2">Obese (Class III)</td>
+              <td class="px-4 py-2">40.0 and above</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="bmi.js"></script>
+</body>
+
+</html>
